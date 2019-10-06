@@ -5,19 +5,19 @@
 	<title>Crystal Collector Game</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Bangers|Fugaz+One|Nunito|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel:700|Comfortaa|Pacifico&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/5af61098c7.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="reset.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	
 </head>
 
 <!-- The Scrollspy plugin is used to automatically update links in a navigation list based on scroll position. -->
 <body>
 
-	<nav class="navbar navbar-light bg-light">
+	<nav class="navbar navbar-dark bg-light">
  		 <span class="navbar-brand mb-0 h1">Crystal Collector Game</span>
 	</nav>
 
@@ -41,7 +41,7 @@
         <div class="container">
         <div class="row">
             <div class="column left">
-                <div class="wins">
+                <div class="matchNumber">
                     <h4>Match This Number</h4>
                     <p id="matchNum"></p>
                 </div>
@@ -57,18 +57,18 @@
                 <div class="crystalBox">
                     <div class="crystalRowOne">
                         <button class="gemButton" id="icyGem">
-                            <img src="icyGem.png" height="100" width="165" alt="icy gem">
+                            <img src="assets/images/icyGem.png" height="100" width="155" alt="icy gem">
                         </button>
                         <button class="gemButton" id="diamondGem">
-                            <img src="diamondGem.png" height="100" width="165" alt="diamnd gem">
+                            <img src="assets/images/diamondGem.png" height="100" width="155" alt="diamnd gem">
                         </button>
                     </div>
                     <div class="crystalRowTwo">
                         <button class="gemButton" id="rainbowGem">
-                            <img src="rainbowGem.png" height="100" width="165" alt="rainbow gem">
+                            <img src="assets/images/rainbowGem.png" height="100" width="155" alt="rainbow gem">
                         </button>
                         <button class="gemButton" id="blueGem">
-                            <img src="blueGem.png" height="100" width="165" alt="blue gem">
+                            <img src="assets/images/blueGem.png" height="100" width="155" alt="blue gem">
                         </button>
                     </div>
                 </div>
@@ -95,9 +95,8 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
     <!-- end of Script Source Files -->
-    <script src="game.js" type="text/javascript"></script>
-
 
 </body>
 
