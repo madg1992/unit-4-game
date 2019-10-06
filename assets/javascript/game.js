@@ -44,7 +44,6 @@ function isWinner() {
     // if the totalScore # matches the matchNum # then isWinner will run
     if (totalScore === matchNum) {
         numWins++;
-        // $('#giphy-embed').attr('src', 'https://giphy.com/embed/l0HlSDiA6WUytl9oA');
         $('#playAgain').show();
         $('.crystalBox').hide();
     }
@@ -53,7 +52,6 @@ function isWinner() {
 function isLoser() {
     if (totalScore > matchNum) {
         numLosses++;
-        // $('#giphy-embed').attr('src', 'https://giphy.com/embed/3og0IEeKFFlzaykixW');
         $('#playAgain').show();
         $('.crystalBox').hide();
     }
