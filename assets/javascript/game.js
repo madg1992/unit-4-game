@@ -1,78 +1,97 @@
-var matchNum; //number to match
-var totalScore = 0; // number for total score
-var numWins = 0; // number of wins
-var numLosses = 0; // number of losses
-var keyClick; //for the gem button click
-var isFinished = false; // when true, game can start again
+//Global Variables
 
-// function runs at the start of page and used to restart after game isFinished
-function setup() {
-    //picks random number between two values
-    var randomNum = function(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    } 
+var numToMatch;
+var userTotal = 0; // total game score
+var winCounter = 0; // number of wins
+var lossCounter = 0; // number of losses
+var crystalClick;
+var gameCompleted = false;
 
-    //random number between 19-120 for matchNum
-    matchNum = randomNum(19, 120);
+// we need a function that will generate a random number to match at the start of each game
+function setup(){
 
-    //adds 'data-val' to each gem with a random number between 1-12
-    $('#icyGem').attr('data-val', randomNum(1, 12));
-    $('#diamondGem').attr('data-val', randomNum(1, 12));
-    $('#rainbowGem').attr('data-val', randomNum(1, 12));
-    $('#blueGem').attr('data-val', randomNum(1, 12));
+    var numToMatch = Math.floor((Math.random() * 120) + 19);
+        console.log(numToMatch);
+        $("#matchNum").html(numToMatch);
 
-    //resets score to 0
-    totalScore = 0;
-    //clears giphy-embed to now show any gifs
-    // $('#giphy-embed').attr('src', '');
-    //show the selected elements on the screen 
-    updateScreen(); 
+    var icyGem = Math.floor((Math.random() * 12) + 1);
+        console.log(icyGem)
+        $("#icyGem").attr('data-val', icyGem);
+
+    var diamondGem = Math.floor((Math.random() * 12) + 1);
+        console.log(diamondGem);
+        $("#diamondGem").attr('data-val', diamondGem);
+
+    var rainbowGem = Math.floor((Math.random() * 12) + 1);
+        console.log(rainbowGem);
+        $("#rainbowGem").attr('data-val', rainbowGem);
+
+    var blueGem = Math.floor((Math.random() * 12) + 1);
+        console.log(blueGem);
+        $("#blueGem").attr('data-val', blueGem);
+
+
+    userTotal = 0;  // this will reset the total amount guessed by the user to match the randomNum back to 0
+    gameUpdate();
 }
 
-//updates the HTML from the functions
-function updateScreen() {
-    $('#matchNum').text(matchNum);
-    $('#totalScore').text(totalScore);
-    $('#numWins').text(numWins);
-    $('#numLosses').text(numLosses);
+function gameUpdate() {
+    $('#matchNum').text(numToMatch);
+    $('#totalScore').text(userTotal);
+    $('#numWins').text(winCounter);
+    $('numLosses').text(lossCounter);
 }
 
+//crystal button functions
+
+$("#icyGem").on("click", function() {
+    userTotal += icyGem;
+    $('#totalScore').html(userTotal);
+});
+
+$("#diamondGem").on("click", function() {
+    userTotal += diamondGem;
+    $('#totalScore').html(userTotal);
+});
+
+$("#rainbowGem").on("click", function() {
+    userTotal += rainbowGem;
+    $('#totalScore').html(userTotal);
+});
+
+$("#blueGem").on("click", function() {
+    userTotal += blueGem;
+    $('#totalScore').html(userTotal);
+
+gameUpdate();
+winner();
+loser();
+});
 
 
-//function to check if the player is a winner
-function isWinner() {
-    // if the totalScore # matches the matchNum # then isWinner will run
-    if (totalScore === matchNum) {
-        numWins++;
+//function to verify if the user won
+function winner() {
+    if (userTotal === numToMatch) {
+        winCounter++;
         $('#playAgain').show();
-        $('.crystalBox').hide();
     }
 }
-//function to check if the player is a loser
-function isLoser() {
-    if (totalScore > matchNum) {
-        numLosses++;
+
+//function to verify if the user loss
+function loser(){
+    if (userTotal > numToMatch) {
+        lossCounter++;
         $('#playAgain').show();
-        $('.crystalBox').hide();
     }
 }
-//when playAgain button is clicked, game restarts 
+
+// when the user clicks on Play Again button, the game will restart
 $('#playAgain').on('click', function(){
     $('#playAgain').hide();
-    $('.crystalBox').show();
     setup();
-})
+});
 
-//function to check when gem button is clicked 
-$('.gemButton').on('click', function(){
-    keyClick = $(this).attr('data-val'); //keyClick grabs the data val # from gem button
-    totalScore += parseInt(keyClick); //adds the value to the score
-    //runs the functions to update the html and to check if user is a winner/loser
-    updateScreen();
-    isWinner();
-    isLoser();
-  });
 
-  //execute the starting functions
-  setup();
-  updateScreen();
+
+setup();
+gameUpdate();
