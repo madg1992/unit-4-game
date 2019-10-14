@@ -42,15 +42,19 @@ blueGem.value = randomNum(1,12);
 
 $("#icyGem").on("click", function() {
     userTotal += icyGem.value;
+    setup();
 });
 $("#diamondGem")on("click", function(){
     userTotal += diamondGem.value;
+    setup();
 });
 $("#rainbowGem").on("click", function(){
     userTotal += rainbowGem.value;
+    setup();
 });
 $("#blueGem").on("click", function(){
     usertTotal += blueGem.value
+    setup();
 });
 
 gameStart();
@@ -65,6 +69,12 @@ function setup() {
     }
     $("#totalScore").text(userTotal);
 }
+
+// when the user clicks on Play Again button, the game will restart
+$('#playAgain').on('click', function(){
+    $('#playAgain').hide();
+    gameStart();
+});
 
 
 
