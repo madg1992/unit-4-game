@@ -40,7 +40,7 @@ rainbowGem.value = randomNum(1,12);
 blueGem.value = randomNum(1,12);
 }
 
-$("#icyGem").on("click", function() {
+$("#icyGem").on("click", function(){
     userTotal += icyGem.value;
     setup();
 });
@@ -53,7 +53,7 @@ $("#rainbowGem").on("click", function(){
     setup();
 });
 $("#blueGem").on("click", function(){
-    usertTotal += blueGem.value
+    userTotal += blueGem.value;
     setup();
 });
 
@@ -66,6 +66,7 @@ function setup() {
     } else if (userTotal > numToMatch){
         lossCounter++;
         gameStart();
+        $('#playAgain').show(); 
     }
     $("#totalScore").text(userTotal);
 }
