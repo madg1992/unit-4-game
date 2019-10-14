@@ -44,7 +44,7 @@ $("#icyGem").on("click", function() {
     userTotal += icyGem.value;
     setup();
 });
-$("#diamondGem")on("click", function(){
+$("#diamondGem").on("click", function(){
     userTotal += diamondGem.value;
     setup();
 });
@@ -63,7 +63,7 @@ function setup() {
     if (userTotal === numToMatch) {
         winCounter++;
         gameStart();
-    } else (userTotal > numToMatch) {
+    } else if (userTotal > numToMatch){
         lossCounter++;
         gameStart();
     }
